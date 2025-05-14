@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Keen 4 in JS-DOS</title>
+    <link rel="stylesheet" href="https://v8.js-dos.com/latest/js-dos.css">
+    <script src="https://v8.js-dos.com/latest/js-dos.js"></script>
+</head>
+<body>
+    <div id="dos" style="width: 100vw; height: 100vh;"></div>
+
+    <script>
+        window.onload = function () {
+            function requestFullScreen() {
+                let body = document.body;
+                if (body.requestFullscreen) body.requestFullscreen();
+                else if (body.mozRequestFullScreen) body.mozRequestFullScreen();
+                else if (body.webkitRequestFullscreen) body.webkitRequestFullscreen();
+                else if (body.msRequestFullscreen) body.msRequestFullscreen();
+            }
+
+            requestFullScreen(); 
+
+            const dosInstance = Dos(document.getElementById("dos"), {
+                url: "bundle.jsdos",  
+                autoStart: true,
+                fullscreen: true
+            });
+        };
+    </script>
+</body>
+</html>
